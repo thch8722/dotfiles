@@ -21,6 +21,8 @@ set autoindent
 
 set relativenumber
 
+set textwidth=80
+set colorcolumn=+1
 set cursorline
 
 "
