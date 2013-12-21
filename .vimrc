@@ -21,6 +21,8 @@ set autoindent
 
 set relativenumber
 
+set cursorline
+
 "
 " Remamps 
 "  <C-U>
