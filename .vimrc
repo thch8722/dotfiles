@@ -24,6 +24,9 @@ set textwidth=80
 set colorcolumn=+1
 set cursorline
 
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+
 "
 " Remamps 
 "  <C-U>
