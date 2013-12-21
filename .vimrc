@@ -16,7 +16,6 @@ set incsearch
 set smartcase
 set ignorecase
 
-set cindent
 set autoindent
 
 set relativenumber
