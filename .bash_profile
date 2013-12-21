@@ -8,3 +8,11 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 alias ls="ls -lahG"
+alias s="git status"
+
+bupdate() {
+    for action in update upgrade cleanup
+    do
+        echo "--> $action" && brew $action
+    done
+}
