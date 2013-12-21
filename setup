@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -x
+
+[ ! -d ./backup ] && mkdir backup
+for file in .??*
+do
+    if [ -f "$file" ] && [ "$file" != '.gitignore' ]
+    then
+        [ -f ~/$file ] && mv ~/$file backup
+        ln -s $PWD/$file ~/$file
+    fi
+done
