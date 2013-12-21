@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -x
 
+ignored='.gitignore .gitmodules'
+
 [ ! -d ./backup ] && mkdir backup
 for file in .??*
 do
-    if [ -f "$file" ] && [ "$file" != '.gitignore' ]
+    if [ -f "$file" ] && [[ ! $ignored =~ "$file" ]]
     then
         [ -f ~/$file ] && mv ~/$file backup
         ln -s $PWD/$file ~/$file

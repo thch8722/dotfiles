@@ -1,0 +1,3 @@
+[submodule "lib/bash-prompt-git-status"]
+	path = lib/bash-prompt-git-status
+	url = https://github.com/jseb/bash-prompt-git-status.git
