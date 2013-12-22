@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-set -x
-
 ignored='.gitignore .gitmodules'
 
 [ ! -d ./backup ] && mkdir backup
