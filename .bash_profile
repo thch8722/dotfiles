@@ -30,4 +30,4 @@ get_source_dir() {
     dir="$( cd -P "$( dirname "$source" )" && pwd )"
     echo "$dir"
 }
-source $(get_source_dir)/lib/bash-prompt-git-status/git_prompt
+source $(get_source_dir)/lib/git-prompt/git-prompt
