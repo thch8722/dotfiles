@@ -24,7 +24,7 @@ set textwidth=80
 set colorcolumn=+1
 set cursorline
 
-:highlight ExtraWhitespace ctermbg=red guibg=red
+:highlight ExtraWhitespace ctermbg=7
 :match ExtraWhitespace /\s\+$/
 
 "
