@@ -31,3 +31,5 @@ get_source_dir() {
     echo "$dir"
 }
 source $(get_source_dir)/lib/git-prompt/git-prompt
+export PS1="\$(git_prompt)"$PS1
+
