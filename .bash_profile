@@ -13,7 +13,7 @@ alias s="git status"
 bupdate() {
     for action in update upgrade cleanup
     do
-        echo "--> $action" && brew $action
+        echo "--> brew $action" && brew $action
     done
 }
 
@@ -33,3 +33,4 @@ get_source_dir() {
 source $(get_source_dir)/lib/git-prompt/git-prompt
 export PS1="\$(git_prompt)"$PS1
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
