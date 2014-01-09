@@ -13,6 +13,7 @@ set smarttab
 
 " two character tabs for ruby..
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal shiftwidth=2 tabstop=2
 
 set hlsearch
 set incsearch
