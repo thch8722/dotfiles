@@ -14,6 +14,7 @@ set smarttab
 " two character tabs for ruby..
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 set hlsearch
 set incsearch
@@ -30,6 +31,10 @@ set cursorline
 
 :highlight ExtraWhitespace ctermbg=7
 :match ExtraWhitespace /\s\+$/
+
+execute pathogen#infect()
+
+let g:indentLine_faster = 1
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
