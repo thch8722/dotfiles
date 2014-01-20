@@ -2,7 +2,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=5000
 shopt -s histappend
 
-export PROMPT_COMMAND="history -a; history -c; history -r"
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r"
 export EDITOR=vim
 
 bind '"\e[A":history-search-backward'
