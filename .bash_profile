@@ -1,5 +1,5 @@
 export HISTCONTROL=ignoredups:erasedups
-export HISTSIZE=5000
+export HISTSIZE=10000
 shopt -s histappend
 
 export PROMPT_COMMAND="history -n; history -w; history -c; history -r"
