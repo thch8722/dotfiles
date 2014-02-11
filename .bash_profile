@@ -18,6 +18,10 @@ bupdate() {
     done
 }
 
+hr() {
+    printf -- "${1:-=}%.0s" $(seq $COLUMNS)
+}
+
 get_source_dir() {
     source="${BASH_SOURCE[0]}"
     # resolve $source until the file is no longer a symlink
