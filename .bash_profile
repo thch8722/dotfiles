@@ -11,11 +11,20 @@ bind '"\e[B":history-search-forward'
 alias ls="ls -lahG"
 alias s="git status"
 
+upgrade_casks() {
+    for cask in $(brew cask list)
+    do
+        brew cask install $cask
+    done
+    brew cask cleanup
+}
+
 bupdate() {
     for action in update upgrade cleanup
     do
         echo "--> brew $action" && brew $action
     done
+    upgrade_casks
 }
 
 hr() {
