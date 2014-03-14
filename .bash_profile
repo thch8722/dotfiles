@@ -20,12 +20,28 @@ upgrade_casks() {
     brew cask cleanup
 }
 
+pupdate() {
+    bupdate
+    upgrade_casks
+    echo -n "--> upgrading npm packages.. "
+    upgrade_npm && echo "success." || echo "failed."
+    echo "--> re-linking node"
+    relink_node
+}
+
 bupdate() {
     for action in update doctor upgrade cleanup
     do
         echo "--> brew $action" && brew $action
     done
-    upgrade_casks
+}
+
+relink_node() {
+    brew unlink node && brew link --overwrite node
+}
+
+upgrade_npm() {
+    npm update -gf --loglevel=error >/dev/null
 }
 
 hr() {
