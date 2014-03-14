@@ -20,7 +20,7 @@ upgrade_casks() {
 }
 
 bupdate() {
-    for action in update upgrade cleanup
+    for action in update doctor upgrade cleanup
     do
         echo "--> brew $action" && brew $action
     done
