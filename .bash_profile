@@ -11,6 +11,8 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+This should go to github
+
 alias ls="ls -lahG"
 alias s="git status"
 
