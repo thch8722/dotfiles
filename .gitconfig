@@ -1,6 +1,0 @@
-[color]
-	ui = auto
-[push]
-	default = simple
-[merge]
-	tool = meld
