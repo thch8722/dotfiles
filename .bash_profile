@@ -37,10 +37,6 @@ upgrade_casks() {
 pupdate() {
     bupdate
     upgrade_casks
-    echo -n "--> upgrading npm packages.. "
-    upgrade_npm && echo "success." || echo "failed."
-    echo "--> re-linking node"
-    relink_node
 }
 
 bupdate() {
@@ -50,8 +46,5 @@ bupdate() {
     done
 }
 
-relink_node() {
-    brew unlink node && brew link --overwrite node
-}
 
 
