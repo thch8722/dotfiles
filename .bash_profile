@@ -49,7 +49,11 @@ bupdate() {
 
 ptimer() {
     echo "timer set for $1 minutes with the message $2"
-    nohup ~/Utilities/timer $1 $2 &
+    exec 3>&1
+    exec 1>>timer_log_file
+    (timer $1 $2 &)
+    exec 1>&3 
+    exec 3>&-   
 }
 
 wloop() {
@@ -59,5 +63,14 @@ wloop() {
 
 }
 
+timer(){
+    sleep $(($1 * 60))
+    /usr/bin/osascript <<-EOF
+        tell application "System Events"
+            activate
+            display dialog "$2"
+        end tell
+EOF
+}
 
 
