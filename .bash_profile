@@ -47,5 +47,17 @@ bupdate() {
     done
 }
 
+ptimer() {
+    echo "timer set for $1 minutes with the message $2"
+    nohup ~/Utilities/timer $1 $2 &
+}
+
+wloop() {
+    ptimer 5 planing time is over
+    ptimer 40 time to clean
+    ptimer 50 go get a coffe
+
+}
+
 
 
