@@ -51,15 +51,15 @@ ptimer() {
     echo "timer set for $1 minutes with the message $2"
     exec 3>&1
     exec 1>>timer_log_file
-    (timer $1 $2 &)
+    (timer $1 "$2" &)
     exec 1>&3 
     exec 3>&-   
 }
 
 wloop() {
-    ptimer 5 planing time is over
-    ptimer 40 time to clean
-    ptimer 50 go get a coffe
+    ptimer 5 "planing time is over"
+    ptimer 40 "time to clean"
+    ptimer 50 "go get a coffe"
 
 }
 
