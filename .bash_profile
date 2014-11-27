@@ -12,6 +12,7 @@ bind '"\e[B":history-search-forward'
 alias ls="ls -lahG"
 alias s="git status"
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias pu="cd ~ && clear"
 
 upgrade_casks() {
     old_ifs=$IFS
@@ -48,28 +49,26 @@ bupdate() {
 }
 
 ptimer() {
-    echo "timer set for $1 minutes with the message $2"
+re='^[0-9]+$'
+if ! [[ $1 =~ $re ]] ; then
+  echo "    ptimer2 takes three input parameters: time, message and button text. 
+    Example usage: ptimer2 2 \"Time for a break!\" \"Yes, that is a good idea\" 
+    sets a two minutes timer with message \"Time for a break!\" with button \"Yes, that is a goo idea.\""
+else
+echo "timer set for $1 minutes with the message \"$2\" and button \"$3\""
     exec 3>&1
-    exec 1>>timer_log_file
-    (timer $1 "$2" &)
-    exec 1>&3 
-    exec 3>&-   
+    mkdir -p ~/.bash_profile_logs
+    exec 1>>~/.bash_profile_logs/timer_log_file
+    (sleep_and_display $1 "$2" "$3" "Time's up!" &)
+    exec 1>&3
+    exec 3>&-
+fi
 }
 
-wloop() {
-    ptimer 5 "planing time is over"
-    ptimer 40 "time to clean"
-    ptimer 50 "go get a coffe"
-
-}
-
-timer(){
+sleep_and_display(){
     sleep $(($1 * 60))
     /usr/bin/osascript <<-EOF
-        tell application "System Events"
-            activate
-            display dialog "$2"
-        end tell
+        display dialog "$2" buttons {"$3"} default button "$3" with title "$4"
 EOF
 }
 
