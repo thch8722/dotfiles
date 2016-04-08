@@ -5,6 +5,17 @@ shopt -s histappend
 export PROMPT_COMMAND="history -n; history -w; history -c; history -r"
 export EDITOR=vim
 export PS1="\u@\h: \w$ "
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home
+
+export HOMEBREW_GITHUB_API_TOKEN=58cad501e3168c32bccd12cc41c04fa3786e634e
+
+export MAVEN_OPTS="-server -Xmx3g -XX:MaxPermSize=256m"
+export JAVA_OPTS="-server -Xmx3g -XX:MaxPermSize=256m -Dpolopoly.ejb-configuration.db.autoInstall=true"
+# export JAVA_OPTS="-server -Xmx3g -XX:MaxPermSize=256m"
+export JBOSS_HOME=/Users/thch8722/polopoly/work/embedded-jboss
+
+source ~/.profile
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
@@ -13,6 +24,14 @@ alias ls="ls -lahG"
 alias s="git status"
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias pu="cd ~ && clear"
+alias which='type -all'
+
+alias cd..='cd ../'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
 
 upgrade_casks() {
     old_ifs=$IFS
@@ -73,3 +92,9 @@ EOF
 }
 
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/thch8722/.sdkman"
+[[ -s "/Users/thch8722/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/thch8722/.sdkman/bin/sdkman-init.sh"
